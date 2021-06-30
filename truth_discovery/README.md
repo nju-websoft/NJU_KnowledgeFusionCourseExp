@@ -60,7 +60,7 @@
 下面给出本次实验预先给定的文件夹结构。
 
 ```bash
-TruthDiscovery
+truth_discovery
 	├─README.md						本文档
 	├─majority_voting.py			一个简单的投票算法实现
 	├─result_evaluation.py			用于评估算法结果的代码
