@@ -6,4 +6,4 @@
 * **实体对齐**（entity alignment）
 * **真值验证**（truth discovery）
 
-请根据具体要求完成实验内容。
+请根据具体要求完成实验内容，有问题请直接提issues。
