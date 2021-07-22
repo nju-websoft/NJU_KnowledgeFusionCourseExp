@@ -37,7 +37,7 @@ parser.add_argument('--truncated_freq', type=int, default=10)
 parser.add_argument('--learning_rate', type=float, default=0.001)
 parser.add_argument('--optimizer', type=str, default='Adam')
 parser.add_argument('--batch_threads_num', type=int, default=4)
-parser.add_argument('--test_threads_num', type=int, default=8)
+parser.add_argument('--test_threads_num', type=int, default=1)
 parser.add_argument('--max_epoch', type=int, default=200)
 parser.add_argument('--eval_freq', type=int, default=10)
 

@@ -2,6 +2,7 @@ import math
 import multiprocessing as mp
 import random
 import time
+import gc
 
 import tensorflow as tf
 import numpy as np
@@ -306,6 +307,7 @@ class MTransEV2:
         neighbors2 = generate_neighbours(embeds2, kg2_random_ents, neighbors_num2,
                                          frags_num=self.args.batch_threads_num)
         print("generating neighbors ({}, {}) costs {:.3f} s.".format(num1, num2, time.time() - t1))
+        gc.collect()
         return neighbors1, neighbors2
 
     def run(self):
@@ -329,6 +331,9 @@ class MTransEV2:
                     break
             # truncated sampling cache
             if self.args.neg_sampling == 'truncated' and i % self.args.truncated_freq == 0:
+                if neighbors1 is not None:
+                    del neighbors1, neighbors2
+                    gc.collect()
                 neighbors1, neighbors2 = self.generate_neighbors()
 
         print("Training ends. Total time = {:.1f} s.".format(time.time() - t))

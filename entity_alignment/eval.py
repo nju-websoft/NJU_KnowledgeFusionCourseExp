@@ -8,6 +8,31 @@ from openea.modules.finding.similarity import sim
 from openea.modules.utils.util import task_divide
 
 
+def calculate_rank_(idx, sim_mat, top_k, accurate, total_num):
+    assert 1 in top_k
+    mr = 0
+    mrr = 0
+    hits = [0] * len(top_k)
+    hits1_rest = set()
+    for i in range(len(idx)):
+        gold = idx[i]
+        if accurate:
+            rank = (-sim_mat[i, :]).argsort()
+        else:
+            rank = np.argpartition(-sim_mat[i, :], np.array(top_k) - 1)
+        hits1_rest.add((gold, rank[0]))
+        assert gold in rank
+        rank_index = np.where(rank == gold)[0][0]
+        mr += (rank_index + 1)
+        mrr += 1 / (rank_index + 1)
+        for j in range(len(top_k)):
+            if rank_index < top_k[j]:
+                hits[j] += 1
+    mr /= total_num
+    mrr /= total_num
+    return mr, mrr, hits, hits1_rest
+
+
 @ray.remote(num_cpus=1)
 def calculate_rank(idx, sim_mat, top_k, accurate, total_num):
     assert 1 in top_k
@@ -55,7 +80,7 @@ def greedy_alignment(embed1, embed2, top_k, nums_threads, metric, normalize, csl
             hits += np.array(sub_hits)
             alignment_rest |= sub_hits1_rest
     else:
-        mr, mrr, hits, alignment_rest = calculate_rank(list(range(num)), sim_mat, top_k, accurate, num)
+        mr, mrr, hits, alignment_rest = calculate_rank_(list(range(num)), sim_mat, top_k, accurate, num)
     assert len(alignment_rest) == num
     hits = np.array(hits) / num
     for i in range(len(hits)):
@@ -79,6 +104,8 @@ def greedy_alignment(embed1, embed2, top_k, nums_threads, metric, normalize, csl
     sim_list = []
     for i, j in alignment_rest:
         sim_list.append(sim_mat[i, j])
+    del embed1
+    del embed2
     del sim_mat
     gc.collect()
     return alignment_rest, hits, mr, mrr, sim_list

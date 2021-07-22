@@ -19,6 +19,7 @@ def generate_neighbours(entity_embeds, entity_list, neighbors_num, frags_num=8):
         rest.append(res)
     for res in ray.get(rest):
         dic = merge_dic(dic, res)
+    del entity_embeds
     gc.collect()
     return dic
 
