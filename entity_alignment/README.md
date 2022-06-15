@@ -10,13 +10,13 @@
 
 ### 数据集
 
-本实验基于DBP2.0数据集，可以通过[figshare](https://doi.org/10.6084/m9.figshare.14872080.v1)下载。该数据集抽取自多语言[DBpedia](https://www.dbpedia.org/), 其包含三个实体对齐任务，分别是ZH-EN、JA-EN和FR-EN。**但本次实验只考虑ZH-EN**，其包含以下（本实验所需的）文件：
+本实验基于OpenEA数据集，可以通过[dataset](https://figshare.com/articles/dataset/OpenEA_dataset_v1_1/19258760/3)下载。该数据集抽取自多语言[DBpedia](https://www.dbpedia.org/), 其包含多个实体对齐任务数据集。**但本次实验只考虑EN_FR_15K_V1**，其包含以下（本实验所需的）文件：
 
 * rel_triples_1: 源知识图谱的关系三元组，格式是（头实体 \t 关系 \t 尾实体）;
 * rel_triples_2: 目标知识图谱的关系三元组，格式同上;
-* splits/train_links: 实体对齐的训练数据，格式是（源实体 \t 等价的目标实体）;
-* splits/valid_links: 实体对齐的验证数据，格式同上;
-* splits/test_links: 实体对齐的测试数据，格式同上.
+* 721_5fold/\[1-5]/train_links: 实体对齐的训练数据，格式是（源实体 \t 等价的目标实体）;
+* 721_5fold/\[1-5]/valid_links: 实体对齐的验证数据，格式同上;
+* 721_5fold/\[1-5]/test_links: 实体对齐的测试数据，格式同上.
 
 ## 基于表示学习的实体对齐方法
 
@@ -36,29 +36,24 @@
 
 Hits@k (k=1或10)、mean rank (MR)、mean reciprocal rank (MRR)是常用的实体对齐性能指标。Hits@k计算了对应目标实体排名在top k的测试数据的比例；MR是所有测试数据的对应目标实体的平均排名；MRR是这些排名的倒数的平均值。Hits@k和MRR越高且MR越低，说明模型性能越好。
 
-## 代码介绍
+## 实验要求
 
 ### 代码依赖
 
-本实验代码依赖[OpenEA](https://github.com/nju-websoft/OpenEA)（欢迎大家star），请参其文档安装相应依赖包和OpenEA.
+本实验代码基于[OpenEA](https://github.com/nju-websoft/OpenEA)（欢迎大家star），请首先参其文档安装相应依赖包和OpenEA.
 
-### 代码结构
+### 实验步骤
 
-- `main.py`：参数设置与程序运行的入口。
-- **`mtranse.py`**：需要修改其中的`self._define_embed_graph()`方法和`self._define_align_graph()`方法，改进其实体对齐性能。当然，你也可以自己重新实现其他模型，比如基于GNN的模型。
-- `eval.py`：测试方法。
-- `nn_search.py`：近邻搜索方法。
-- `utils.py`：其他方法。
+- 安装[OpenEA](https://github.com/nju-websoft/OpenEA)(推荐Ubuntu系统)；
+- 下载[dataset](https://figshare.com/articles/dataset/OpenEA_dataset_v1_1/19258760/3)(本实验仅要求用其中的EN_FR_15K_V1作为数据集)；
+- 参照OpenEA文档运行基线方法MTransE，参数可在run/args/mtranse_args_15K.json中配置；
+- 改进基线方法或重构、实现新方法，达到优于基线的实体对齐性能。
 
-## 实验要求
+基线方法在EN_FR_15K_V1数据上的表现如下：
 
-对提供的基线方法进行改进、重构或者实现新方法，达到优于基线方法的实体对齐性能。
-
-基线方法在ZH-EN数据上的表现如下：
-
-| Task | Hits@1 | Hits@10 | MRR | MR |
-|:--:|:--:|:--:|:--:|:--:|
-| ZH-EN | 0.357 | 0.675 | 0.464 | 664 |
+| Hits@1 | Hits@5 | MRR |
+|:--:|:--:|:--:|
+| 0.247 | 0.467 | 0.351 |
 
 
 ## 参考文献
