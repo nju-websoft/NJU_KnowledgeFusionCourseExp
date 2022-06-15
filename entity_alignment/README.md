@@ -44,8 +44,8 @@ Hits@k (k=1或10)、mean rank (MR)、mean reciprocal rank (MRR)是常用的实�
 
 ### 实验步骤
 
-- 安装[OpenEA] (https://github.com/nju-websoft/OpenEA) (推荐Ubuntu系统)；
-- 下载[dataset] (https://figshare.com/articles/dataset/OpenEA_dataset_v1_1/19258760/3) (本实验仅要求用其中的EN_FR_15K_V1作为数据集)；
+- 安装[OpenEA](https://github.com/nju-websoft/OpenEA) (推荐Ubuntu系统)；
+- 下载[dataset](https://figshare.com/articles/dataset/OpenEA_dataset_v1_1/19258760/3) (本实验仅要求用其中的EN_FR_15K_V1作为数据集)；
 - 参照OpenEA文档运行基线方法MTransE，参数可在run/args/mtranse_args_15K.json中配置；
 - 改进基线方法或重构、实现新方法，达到优于基线的实体对齐性能。
 
