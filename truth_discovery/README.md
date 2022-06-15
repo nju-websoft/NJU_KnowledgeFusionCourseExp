@@ -66,7 +66,7 @@ truth_discovery
 	├─result_evaluation.py			用于评估算法结果的代码
     ├─dataset
     	├─book.txt					book-author数据集
-    	└─book_golden.txt			人工标注的100条golden结果
+    	└─book_golden.txt			所有书籍真实的作者信息
     └─result
     	└─majority_voting.txt		投票算法生成的结果文件示例
 ```
