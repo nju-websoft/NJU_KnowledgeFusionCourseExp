@@ -26,7 +26,7 @@
 
 一般来说，基于表示学习的实体对齐方法有两个模块。一个是embedding learning (EL) 模块，它读取两个知识图谱的关系三元组，使用表示学习技术为实体学习向量表示。另一个是alignment learning (AL) 模块，它读取实体对齐的训练数据，为共指的实体学习相似的表示。推荐大家阅读我们的综述论文[OpenEA](http://www.vldb.org/pvldb/vol13/p2326-sun.pdf)做进一步了解。
 
-作为参考，本实验提供了实体对齐方法[MTransE](https://www.ijcai.org/proceedings/2017/0209.pdf)的实现作为基线。该实现基于[OpenEA](https://github.com/nju-websoft/OpenEA)工具库（欢迎大家star）。mtranse.py中的self._define_embed_graph()定义了EL模块，self._define_align_graph()定义了AL模块，两个模块交替优化。本次课程实验的目标是改进这两个模块来获得更优的性能。
+作为参考，本实验提供了实体对齐方法[MTransE](https://www.ijcai.org/proceedings/2017/0209.pdf)的实现作为基线。该实现基于[OpenEA](https://github.com/nju-websoft/OpenEA)工具库（欢迎大家star）。mtranse.py中的self._define_embed_graph()定义了EL模块，self._define_mapping_graph()定义了AL模块，两个模块交替优化。本次课程实验的目标是是改进基线方法或重构实现新方法来获得更优的性能，推荐改进EL和AL模块。
 
 ### 模型测试
 
