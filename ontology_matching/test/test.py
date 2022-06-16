@@ -25,7 +25,7 @@ def main():
     data_dir = '../datasets'
     out_dir = '../output'
 
-    align_list = ['301', '302', '303', '304']
+    align_list = ['201', '301', '302', '303', '304']
 
     for res_file in os.listdir(out_dir):
         # check the file name
