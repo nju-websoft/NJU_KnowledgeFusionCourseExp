@@ -5,19 +5,19 @@ import os
 
 
 def main():
-    src_file = '../datasets/101/onto.rdf'
+    src_file = './ontology_matching/datasets/101/onto.rdf'
     target_dict = {'201':'http://oaei.ontologymatching.org/2007/benchmarks/201/onto.rdf#',
                    '301':'http://oaei.ontologymatching.org/2007/benchmarks/301/onto.rdf#',
                    '302':'http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#',
                    '303':'http://www.aifb.uni-karlsruhe.de/ontology#',
                    '304':'http://oaei.ontologymatching.org/2007/benchmarks/304/onto.rdf#'}
-    out_dir = '../output'
+    out_dir = './ontology_matching/output'
     if not os.path.isdir(out_dir):
         os.mkdir(out_dir)
 
     src_rdf = RdfParser(src_file, 'http://oaei.ontologymatching.org/2007/benchmarks/101/onto.rdf#')
     for sub_dir, namespace in target_dict.items():
-        target_file = os.path.join(os.path.join('../datasets/', sub_dir), 'onto.rdf')
+        target_file = os.path.join(os.path.join('./ontology_matching/datasets/', sub_dir), 'onto.rdf')
         # parse rdf
         target_rdf = RdfParser(target_file, namespace)
 
