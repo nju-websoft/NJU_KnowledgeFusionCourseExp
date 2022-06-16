@@ -1,7 +1,7 @@
 import pandas as pd
 
-golden_path = "dataset//book_golden.txt"
-predict_path = "result//majority_voting.txt"
+golden_path = "./truth_discovery/dataset/book_golden.txt"
+predict_path = "./truth_discovery/result/majority_voting.txt"
 
 def str_to_set(str):
     return set(str.lower().replace(';',' ').replace(',',' ').replace('.',' ').replace(':',' ').replace('&',' ').
