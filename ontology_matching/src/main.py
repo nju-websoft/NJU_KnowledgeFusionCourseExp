@@ -6,7 +6,8 @@ import os
 
 def main():
     src_file = '../datasets/101/onto.rdf'
-    target_dict = {'301':'http://oaei.ontologymatching.org/2007/benchmarks/301/onto.rdf#',
+    target_dict = {'201':'http://oaei.ontologymatching.org/2007/benchmarks/201/onto.rdf#',
+                   '301':'http://oaei.ontologymatching.org/2007/benchmarks/301/onto.rdf#',
                    '302':'http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#',
                    '303':'http://www.aifb.uni-karlsruhe.de/ontology#',
                    '304':'http://oaei.ontologymatching.org/2007/benchmarks/304/onto.rdf#'}
