@@ -1,6 +1,6 @@
 import pandas as pd
-in_path = "dataset//book.txt"
-out_path = "result//majority_voting.txt"
+in_path = "./truth_discovery/dataset/book.txt"
+out_path = "./truth_discovery/result/majority_voting.txt"
 df = pd.read_csv(in_path,sep='\t',names=["source","isbn","book","author"])
 
 def majority_voting(df,key_col="isbn",answer_col="author"):
