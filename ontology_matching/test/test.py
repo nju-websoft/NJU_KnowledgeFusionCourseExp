@@ -22,8 +22,8 @@ def align_parser(align_file):
 
 
 def main():
-    data_dir = '../datasets'
-    out_dir = '../output'
+    data_dir = './ontology_matching/datasets'
+    out_dir = './ontology_matching/output'
 
     align_list = ['201', '301', '302', '303', '304']
 
