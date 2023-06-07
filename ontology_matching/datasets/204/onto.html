@@ -1,0 +1,1440 @@
+<html xmlns:bib="http://www.inrialpes.fr/exmo/papers" xmlns:datext="http://www.jclark.com/xt/java/java.util.Date" xmlns:datexa="xalan://java.util.Date" xmlns:units="http://visus.mit.edu/fontomri/0.01/units.owl#" xmlns:foaf="http://xmlns.com/foaf/0.1/#" xmlns:ical="http://www.w3.org/2002/12/cal/#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:wot="http://xmlns.com/wot/0.1/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:dctype="http://purl.org/dc/dcmitype/" xmlns:bibtex="http://purl.org/net/nknouf/ns/bibtex#">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Bibliographic references</title>
+</head>
+<body bgcolor="ffffff">
+<h1>Bibliographic references</h1>
+<p>Bibliographic references in OWL</p>
+<p><i>Possible ontology to describe bibTeX entries.</i><br>
+Author: Nick Knouf &lt;nknouf@mit.edu&gt;<br>
+Contributor: Antoine Zimmermann &lt;antoine.zimmermann@inrialpes.fr&gt;, Jérôme Euzenat, <br>
+Date: 08/06/2005<br>
+Version: $Id: onto.rdf,v 1.27 2006/08/01 10:03:10 euzenat Exp $</p>
+<h2>Classes</h2>
+<dl>
+<dt>
+<b><a name="http://www.w3.org/1999/02/22-rdf-syntax-ns#List">http://www.w3.org/1999/02/22-rdf-syntax-ns#List</a></b> (, <i>)</i>
+</dt>
+<dd>
+<ul></ul>
+<dl></dl>
+</dd>
+<dt>
+<b><a name="http://xmlns.com/foaf/0.1/Person">http://xmlns.com/foaf/0.1/Person</a></b> (, <i>)</i>
+</dt>
+<dd>
+<ul></ul>
+<dl></dl>
+</dd>
+<dt>
+<b><a name="http://xmlns.com/foaf/0.1/Organization">http://xmlns.com/foaf/0.1/Organization</a></b> (, <i>)</i>
+</dt>
+<dd>
+<ul></ul>
+<dl></dl>
+</dd>
+<dt>
+<b><a name="REFERENCE">REFERENCE</a></b> (REFERENCE, <i>Base class for all entries)</i>
+</dt>
+<dd>
+<ul>
+<li>
+<a href="#date">#date</a> [0 1]</li>
+<li>
+<a href="#title">#title</a> [0 1]</li>
+<li>
+<a href="#human_creator">#human_creator</a> [0 1]</li>
+</ul>
+<dl>
+<dt>
+<b><a name="Book">Book</a></b> (Book, <i>A book that may be a monograph or a collection of written texts.)</i>
+</dt>
+<dd>
+<ul>
+<li>
+<a href="#title">#title</a> [1 1]</li>
+<li>
+<a href="#volume">#volume</a> [0 1]</li>
+<li>
+<a href="#publisher">#publisher</a> [0 1]</li>
+<li>
+<a href="#series">#series</a> [0 1]</li>
+<li>
+<a href="#date">#date</a> [1 1] <i><a href="#DATE">#DATE</a></i><br>
+</li>
+<li>
+<a href="#author">#author</a> [1 1]</li>
+<li>
+<a href="#edition">#edition</a> [0 1]</li>
+</ul>
+<dl>
+<dt>
+<b><a name="Monograph">Monograph</a></b> (Monograph, <i>A book that is a single entity, as opposed to a collection.)</i>
+</dt>
+<dd>
+<ul><li>
+<a href="#chap">#chap</a> <i><a href="#Chapter">#Chapter</a></i><br>
+</li></ul>
+<dl></dl>
+</dd>
+<dt>
+<b><a name="Collection">Collection</a></b> (Collection, <i>A book that is collection of texts or articles.)</i>
+</dt>
+<dd>
+<ul>
+<li>
+<a href="#chap">#chap</a> <i><a href="#Chapter">#Chapter</a></i><br>
+</li>
+<li>
+<a href="#parts">#parts</a> <i><a href="#In_collection">#In_collection</a></i><br>
+</li>
+</ul>
+<dl></dl>
+</dd>
+<dt>
+<b><a name="Proc.">Proc.</a></b> (Proc., <i>The proceedings of a conference.)</i>
+</dt>
+<dd>
+<ul>
+<li>
+<a href="#com">#com</a> <i><a href="#In_proceedings">#In_proceedings</a></i><br>
+</li>
+<li>
+<a href="#event">#event</a> [0 1] <i><a href="#CONFERENCE">#CONFERENCE</a></i><br>
+</li>
+<li>
+<a href="#editor">#editor</a> [0 1]</li>
+<li>
+<a href="#organisation">#organisation</a> [0 1]</li>
+</ul>
+<dl></dl>
+</dd>
+</dl>
+</dd>
+<dt>
+<b><a name="Informal">Informal</a></b> (Informal, <i>A document that was informally published or not published.)</i>
+</dt>
+<dd>
+<ul><li>
+<a href="#title">#title</a> [1 1]</li></ul>
+<dl>
+<dt>
+<b><a name="Booklet">Booklet</a></b> (Booklet, <i>A work that is printed and bound, but without a named publisher or sponsoring institution.)</i>
+</dt>
+<dd>
+<ul></ul>
+<dl></dl>
+</dd>
+<dt>
+<b><a name="Lecture_notes">Lecture_notes</a></b> (Lecture_notes, <i>Lecture notes.)</i>
+</dt>
+<dd>
+<ul></ul>
+<dl></dl>
+</dd>
+<dt>
+<b><a name="Manual">Manual</a></b> (Manual, <i>Technical documentation.)</i>
+</dt>
+<dd>
+<ul>
+<li>
+<a href="#organisation">#organisation</a> [0 1]</li>
+<li>
+<a href="#edition">#edition</a> [0 1]</li>
+<li>
+<a href="#title">#title</a> [1 1]</li>
+</ul>
+<dl></dl>
+</dd>
+<dt>
+<b><a name="Un_published">Un_published</a></b> (Un_published, <i>A document having an author and title, but not formally published.)</i>
+</dt>
+<dd>
+<ul>
+<li>
+<a href="#author">#author</a> [1 1]</li>
+<li>
+<a href="#title">#title</a> [1 1]</li>
+<li>
+<a href="#note">#note</a> [1 +oo]</li>
+</ul>
+<dl></dl>
+</dd>
+</dl>
+</dd>
+<dt>
+<b><a name="Part">Part</a></b> (Part, <i>A part of something (either Book or Proceedings).)</i>
+</dt>
+<dd>
+<ul>
+<li>
+<a href="#pages">#pages</a> [0 1]</li>
+<li>
+<a href="#title">#title</a> [1 1]</li>
+</ul>
+<dl>
+<dt>
+<b><a name="Article">Article</a></b> (Article, <i>An article from a journal or magazine.)</i>
+</dt>
+<dd>
+<ul>
+<li>
+<a href="#author">#author</a> [1 1]</li>
+<li>
+<a href="#pages">#pages</a> [1 1]</li>
+<li>
+<a href="#journal">#journal</a> [1 1]</li>
+<li>
+<a href="#date">#date</a> [1 1] <i><a href="#DATE">#DATE</a></i><br>
+</li>
+<li>
+<a href="#number">#number</a> [0 1]</li>
+<li>
+<a href="#volume">#volume</a> [0 1]</li>
+</ul>
+<dl></dl>
+</dd>
+<dt>
+<b><a name="Chapter">Chapter</a></b> (BookPart, <i>A chapter (or section or whatever) of a book having its own title.)</i>
+</dt>
+<dd>
+<ul><li>
+<a href="#chapter">#chapter</a> [0 1] [0 1]</li></ul>
+<dl></dl>
+</dd>
+<dt>
+<b><a name="In_book">In_book</a></b> (In_book, <i>A subpart of a book given by a range of pages.)</i>
+</dt>
+<dd>
+<ul>
+<li>
+<a href="#author">#author</a> [1 1]</li>
+<li>
+<a href="#pages">#pages</a> [1 +oo]</li>
+<li>
+<a href="#book">#book</a> [1 1]</li>
+</ul>
+<dl></dl>
+</dd>
+<dt>
+<b><a name="In_collection">In_collection</a></b> (Incollection, <i>A part of a book having its own title.)</i>
+</dt>
+<dd>
+<ul>
+<li>
+<a href="#author">#author</a> [1 1]</li>
+<li>
+<a href="#collection">#collection</a> [1 1]</li>
+</ul>
+<dl></dl>
+</dd>
+<dt>
+<b><a name="In_proceedings">In_proceedings</a></b> (In_proceedings, <i>An article in a conference proceedings.)</i>
+</dt>
+<dd>
+<ul>
+<li>
+<a href="#author">#author</a> [1 1]</li>
+<li>
+<a href="#proceedings">#proceedings</a> [1 1]</li>
+</ul>
+<dl></dl>
+</dd>
+</dl>
+</dd>
+<dt>
+<b><a name="Academic">Academic</a></b> (Academic, <i>A Master's or PhD thesis.)</i>
+</dt>
+<dd>
+<ul>
+<li>
+<a href="#author">#author</a> [1 1]</li>
+<li>
+<a href="#title">#title</a> [1 1]</li>
+<li>
+<a href="#school">#school</a> [1 1]</li>
+<li>
+<a href="#date">#date</a> [1 1]</li>
+</ul>
+<dl>
+<dt>
+<b><a name="MSc_thesis">MSc_thesis</a></b> (MSc_thesis, <i>A Master's thesis.)</i>
+</dt>
+<dd>
+<ul></ul>
+<dl></dl>
+</dd>
+<dt>
+<b><a name="PhD_thesis">PhD_thesis</a></b> (PhD_thesis, <i>A PhD thesis.)</i>
+</dt>
+<dd>
+<ul></ul>
+<dl></dl>
+</dd>
+</dl>
+</dd>
+<dt>
+<b><a name="Misc.">Misc.</a></b> (Misc., <i>Use this type when nothing else fits.)</i>
+</dt>
+<dd>
+<ul></ul>
+<dl></dl>
+</dd>
+<dt>
+<b><a name="Report">Report</a></b> (Report, <i>A report published by an institution with some explicit policy.)</i>
+</dt>
+<dd>
+<ul>
+<li>
+<a href="#author">#author</a> [1 1]</li>
+<li>
+<a href="#title">#title</a> [1 1]</li>
+<li>
+<a href="#institution">#institution</a> [1 1]</li>
+<li>
+<a href="#date">#date</a> [1 1] <i><a href="#DATE">#DATE</a></i><br>
+</li>
+<li>
+<a href="#number">#number</a> [0 1]</li>
+</ul>
+<dl>
+<dt>
+<b><a name="Technical_report">Technical_report</a></b> (Technical_report, <i>A report published by a school or other institution, usually numbered within a series.)</i>
+</dt>
+<dd>
+<ul></ul>
+<dl></dl>
+</dd>
+<dt>
+<b><a name="Deliverable">Deliverable</a></b> (Deliverable report, <i>A report delivered for accomplishing a contract.)</i>
+</dt>
+<dd>
+<ul><li>
+<a href="#contract">#contract</a> [0 1]</li></ul>
+<dl></dl>
+</dd>
+</dl>
+</dd>
+<dt>
+<b><a name="Motion_picture">Motion_picture</a></b> (Motion_picture, <i>A film/movie/motion picture.)</i>
+</dt>
+<dd>
+<ul></ul>
+<dl></dl>
+</dd>
+</dl>
+</dd>
+<dt>
+<b><a name="JOURNAL">JOURNAL</a></b> (Journal or magazine, <i>A periodical publication collecting works from different authors.)</i>
+</dt>
+<dd>
+<ul>
+<li>
+<a href="#name">#name</a> [1 1] <i><a href="http://www.w3.org/2001/XMLSchema#string">http://www.w3.org/2001/XMLSchema#string</a></i><br>
+</li>
+<li>
+<a href="#short_name">#short_name</a> <i><a href="http://www.w3.org/2001/XMLSchema#string">http://www.w3.org/2001/XMLSchema#string</a></i><br>
+</li>
+<li>
+<a href="#periodicity">#periodicity</a> <i><a href="http://www.w3.org/2001/XMLSchema#string">http://www.w3.org/2001/XMLSchema#string</a></i><br>
+</li>
+<li>
+<a href="#publisher">#publisher</a> [0 1]</li>
+<li>
+<a href="#series">#series</a> [0 1]</li>
+<li>
+<a href="#first_published">#first_published</a> [0 1]</li>
+<li>
+<a href="#art">#art</a> <i><a href="#Article">#Article</a></i><br>
+</li>
+</ul>
+<dl></dl>
+</dd>
+<dt>
+<b><a name="CONFERENCE">CONFERENCE</a></b> (The location of an event, <i>An event presenting work.)</i>
+</dt>
+<dd>
+<ul>
+<li>
+<a href="#name">#name</a> [1 1]</li>
+<li>
+<a href="#organiser">#organiser</a> <i><a href="#Institution">#Institution</a></i><br>
+</li>
+<li>
+<a href="#short_name">#short_name</a> [0 1]</li>
+<li>
+<a href="#issue">#issue</a> [0 1]</li>
+<li>
+<a href="#location">#location</a> [0 1]</li>
+</ul>
+<dl></dl>
+</dd>
+<dt>
+<b><a name="ADDRESS">ADDRESS</a></b> (ADDRESS, <i>The street address of the location of some organization or event.)</i>
+</dt>
+<dd>
+<ul>
+<li>
+<a href="#country">#country</a> [0 1] <i><a href="http://www.w3.org/2001/XMLSchema#string">http://www.w3.org/2001/XMLSchema#string</a></i><br>
+</li>
+<li>
+<a href="#state">#state</a> [0 1] <i><a href="http://www.w3.org/2001/XMLSchema#string">http://www.w3.org/2001/XMLSchema#string</a></i><br>
+</li>
+<li>
+<a href="#city">#city</a> [0 1] <i><a href="http://www.w3.org/2001/XMLSchema#string">http://www.w3.org/2001/XMLSchema#string</a></i><br>
+</li>
+</ul>
+<dl></dl>
+</dd>
+<dt>
+<b><a name="Institution">Institution</a></b> (Institution, <i>An institution.)</i>
+</dt>
+<dd>super: <i><a href="http://xmlns.com/foaf/0.1/Organization">http://xmlns.com/foaf/0.1/Organization</a></i><br><ul>
+<li>
+<a href="#name">#name</a> [1 1]</li>
+<li>
+<a href="#short_name">#short_name</a> [1 1]</li>
+<li>
+<a href="#address">#address</a> [0 1]</li>
+</ul>
+<dl>
+<dt>
+<b><a name="Publisher">Publisher</a></b> (Publisher, <i>The publisher of books or journals.)</i>
+</dt>
+<dd>
+<ul></ul>
+<dl></dl>
+</dd>
+<dt>
+<b><a name="School">School</a></b> (School, <i>A school or university.)</i>
+</dt>
+<dd>
+<ul></ul>
+<dl></dl>
+</dd>
+</dl>
+</dd>
+<dt>
+<b><a name="PERSON_LIST">PERSON_LIST</a></b> (Person list, <i>A list of persons.)</i>
+</dt>
+<dd>super: <i><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#List">http://www.w3.org/1999/02/22-rdf-syntax-ns#List</a></i><br><ul>
+<li>
+<a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#first">http://www.w3.org/1999/02/22-rdf-syntax-ns#first</a> [1 1] <i><a href="http://xmlns.com/foaf/0.1/Person">http://xmlns.com/foaf/0.1/Person</a></i><br>
+</li>
+<li>
+<a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#rest">http://www.w3.org/1999/02/22-rdf-syntax-ns#rest</a> [1 1] (<i><a href="#PERSON_LIST">#PERSON_LIST</a></i> |  { <dt>&lt;rdf:List@<a name="ttp://www.w3.org/1999/02/22-rdf-syntax-ns#nil">ttp://www.w3.org/1999/02/22-rdf-syntax-ns#nil</a>&gt;</dt>
+<dd><ul compact></ul></dd> } )<br>
+</li>
+</ul>
+<dl></dl>
+</dd>
+<dt>
+<b><a name="PAGE_RANGE">PAGE_RANGE</a></b> (PAGE_RANGE, <i>A range of pages.)</i>
+</dt>
+<dd>
+<ul>
+<li>
+<a href="#start_page">#start_page</a> [1 1]</li>
+<li>
+<a href="#end_page">#end_page</a> [1 1]</li>
+</ul>
+<dl></dl>
+</dd>
+<dt>
+<b><a name="DATE">DATE</a></b> (DATE, <i>Date of a day which can be unknown (i.e., only the year is known or only the year and month). This is for overcoming the limits of XML-Schema for wich a date is not separable.)</i>
+</dt>
+<dd>
+<ul>
+<li>
+<a href="#year">#year</a> [1 1] <i><a href="http://www.w3.org/2001/XMLSchema#gYear">http://www.w3.org/2001/XMLSchema#gYear</a></i><br>
+</li>
+<li>
+<a href="#month">#month</a> [0 1] <i><a href="http://www.w3.org/2001/XMLSchema#gMonth">http://www.w3.org/2001/XMLSchema#gMonth</a></i><br>
+</li>
+<li>
+<a href="#day">#day</a> [0 1] <i><a href="http://www.w3.org/2001/XMLSchema#gDay">http://www.w3.org/2001/XMLSchema#gDay</a></i><br>
+</li>
+</ul>
+<dl></dl>
+</dd>
+</dl>
+<h2>Properties</h2>
+<dl>
+<dt>
+<b><a name="http://www.w3.org/1999/02/22-rdf-syntax-ns#first">http://www.w3.org/1999/02/22-rdf-syntax-ns#first</a></b>:
+     <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#List">http://www.w3.org/1999/02/22-rdf-syntax-ns#List</a> -&gt; _<i> ()</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="http://www.w3.org/1999/02/22-rdf-syntax-ns#rest">http://www.w3.org/1999/02/22-rdf-syntax-ns#rest</a></b>:
+     <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#List">http://www.w3.org/1999/02/22-rdf-syntax-ns#List</a> -&gt;  <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#List">http://www.w3.org/1999/02/22-rdf-syntax-ns#List</a><i> ()</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="chap">chap</a></b>:
+     <a href="#REFERENCE">#REFERENCE</a> -&gt;  <a href="#Chapter">#Chapter</a><i> (The chapters of a book (monograph or collection).)</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="parts">parts</a></b>:
+     <a href="#REFERENCE">#REFERENCE</a> -&gt;  <a href="#Part">#Part</a><i> (The parts of some reference (chapters, sections).)</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="com">com</a></b>:
+     <a href="#Proc.">#Proc.</a> -&gt;  <a href="#In_proceedings">#In_proceedings</a><i> (The communications to a conference as collected in proceedings.)</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="art">art</a></b>:
+     <a href="#JOURNAL">#JOURNAL</a> -&gt;  <a href="#Article">#Article</a><i> (The papers published by a journal.)</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="address">address</a></b>:
+     <a href="http://www.w3.org/2002/07/owl#Thing">http://www.w3.org/2002/07/owl#Thing</a> -&gt;  <a href="#ADDRESS">#ADDRESS</a><i> (The address of an institution or the place of a conference.)</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="event">event</a></b>:
+     <a href="#Proc.">#Proc.</a> -&gt;  <a href="#CONFERENCE">#CONFERENCE</a><i> (The event concerned with the proceedings.)</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="organiser">organiser</a></b>:
+     <a href="#CONFERENCE">#CONFERENCE</a> -&gt;  <a href="http://xmlns.com/foaf/0.1/Organization">http://xmlns.com/foaf/0.1/Organization</a><i> (The organization taking in charge a conference.)</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="contract">contract</a></b>:
+     <a href="#REFERENCE">#REFERENCE</a> -&gt;  <a href="http://www.w3.org/2002/07/owl#Thing">http://www.w3.org/2002/07/owl#Thing</a><i> (The contract in relation of which a particular reference has been made.)</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="human_creator">human_creator</a></b>:
+     <a href="#REFERENCE">#REFERENCE</a> -&gt;  <a href="#PERSON_LIST">#PERSON_LIST</a><i> (The list of the human creators of a work.)</i>
+</dt>
+<dd><dl>
+<dt>
+<b><a name="author">author</a></b>:
+    _ -&gt; _<i> (The list of the author(s) of a work.)</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="editor">editor</a></b>:
+    _ -&gt; _<i> (The list of persons who edited or coordinated a work.)</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="directors">directors</a></b>:
+     <a href="#Motion_picture">#Motion_picture</a> -&gt; _<i> (The list of directors of a motion picture or theater play.)</i>
+</dt>
+<dd><dl></dl></dd>
+</dl></dd>
+<dt>
+<b><a name="institution">institution</a></b>:
+     <a href="#Report">#Report</a> -&gt;  <a href="#Institution">#Institution</a><i> (The sponsoring institution of a technical report.)</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="is_part_of">is_part_of</a></b>:
+     <a href="#Part">#Part</a> -&gt; _<i> (The document that contains a text or article.)</i>
+</dt>
+<dd><dl>
+<dt>
+<b><a name="journal">journal</a></b>:
+     <a href="#Article">#Article</a> -&gt;  <a href="#JOURNAL">#JOURNAL</a><i> (The journal in which an article is published.)</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="book">book</a></b>:
+     <a href="#In_book">#In_book</a> -&gt;  <a href="#Monograph">#Monograph</a><i> (A reference to the book that contains the entry.)</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="collection">collection</a></b>:
+     <a href="#In_collection">#In_collection</a> -&gt;  <a href="#Collection">#Collection</a><i> (A reference to the book that contains the entry.)</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="proceedings">proceedings</a></b>:
+     <a href="#In_proceedings">#In_proceedings</a> -&gt;  <a href="#Proc.">#Proc.</a><i> (A reference to the proceedings in which the entry appears.)</i>
+</dt>
+<dd><dl></dl></dd>
+</dl></dd>
+<dt>
+<b><a name="date">date</a></b>:
+    (<i><a href="#REFERENCE">#REFERENCE</a></i> | <i><a href="#CONFERENCE">#CONFERENCE</a></i>) -&gt;  <a href="#DATE">#DATE</a><i> (The date when the work was published or, for an unpublished work, in which it was written. This date can be incomplete (i.e., no known day or month) but must contain a year.)</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="organisation">organisation</a></b>:
+    (<i><a href="#Proc.">#Proc.</a></i> | <i><a href="#Manual">#Manual</a></i>) -&gt;  <a href="http://xmlns.com/foaf/0.1/Organization">http://xmlns.com/foaf/0.1/Organization</a><i> (The organization that sponsors a conference or that publishes a manual.)</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="publisher">publisher</a></b>:
+    (<i><a href="#REFERENCE">#REFERENCE</a></i> | <i><a href="#JOURNAL">#JOURNAL</a></i>) -&gt;  <a href="#Publisher">#Publisher</a><i> (The publisher of a work.)</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="school">school</a></b>:
+    (<i><a href="#Academic">#Academic</a></i> | <i><a href="#Lecture_notes">#Lecture_notes</a></i>) -&gt;  <a href="#School">#School</a><i> (The name of the school where a thesis was written.)</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="location">location</a></b>:
+    (<i><a href="#REFERENCE">#REFERENCE</a></i> | <i><a href="#CONFERENCE">#CONFERENCE</a></i>) -&gt;  <a href="#ADDRESS">#ADDRESS</a><i> (A location associated with the entry, such as the city in which a conference took place (this is now obsolete).)</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="pages">pages</a></b>:
+     <a href="#Part">#Part</a> -&gt;  <a href="#PAGE_RANGE">#PAGE_RANGE</a><i> (A range of page, with an upper and lower limit.)</i>
+</dt>
+<dd><dl></dl></dd>
+</dl>
+<dl>
+<dt>
+<b><a name="http://purl.org/dc/elements/1.1/creator">http://purl.org/dc/elements/1.1/creator</a></b>_ -&gt; _<i> ()</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="http://purl.org/dc/elements/1.1/contributor">http://purl.org/dc/elements/1.1/contributor</a></b>_ -&gt; _<i> ()</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="http://purl.org/dc/elements/1.1/description">http://purl.org/dc/elements/1.1/description</a></b>_ -&gt; _<i> ()</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="http://purl.org/dc/elements/1.1/date">http://purl.org/dc/elements/1.1/date</a></b>_ -&gt; _<i> ()</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="http://xmlns.com/foaf/0.1/firstName">http://xmlns.com/foaf/0.1/firstName</a></b>_ -&gt; _<i> ()</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="lastName">lastName</a></b>_ -&gt; _<i> ()</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="http://xmlns.com/foaf/0.1/name">http://xmlns.com/foaf/0.1/name</a></b>_ -&gt; _<i> ()</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="key">key</a></b> <a href="#REFERENCE">#REFERENCE</a> -&gt;  <a href="http://www.w3.org/2001/XMLSchema#string">http://www.w3.org/2001/XMLSchema#string</a><i> (The key for a particular entry. Note that the rdf:ID for each Reference instance could be the key as well, possibly making this property redundant.)</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="reviewed">reviewed</a></b> <a href="#REFERENCE">#REFERENCE</a> -&gt;  <a href="http://www.w3.org/2001/XMLSchema#string">http://www.w3.org/2001/XMLSchema#string</a><i> (The selection process overcome by the publication (full, none, poster, invited are possible values).)</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="annote">annote</a></b> <a href="#REFERENCE">#REFERENCE</a> -&gt;  <a href="http://www.w3.org/2001/XMLSchema#string">http://www.w3.org/2001/XMLSchema#string</a><i> (An annotation. It is not used by the standard bibliography styles, but may be used by others that produce an annotated bibliography.)</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="periodicity">periodicity</a></b> <a href="#JOURNAL">#JOURNAL</a> -&gt;  <a href="http://www.w3.org/2001/XMLSchema#string">http://www.w3.org/2001/XMLSchema#string</a><i> (The periodicity of a serial publication (yearly, biannual, quarterly, monthly, bimonthly, weekly, biweekly, dayly).)</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="first_published">first_published</a></b> <a href="#Chapter">#Chapter</a> -&gt;  <a href="http://www.w3.org/2001/XMLSchema#string">http://www.w3.org/2001/XMLSchema#string</a><i> (When the reference was first published.)</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="edition">edition</a></b>(<i><a href="#Book">#Book</a></i> | <i><a href="#Manual">#Manual</a></i>) -&gt;  <a href="http://www.w3.org/2001/XMLSchema#string">http://www.w3.org/2001/XMLSchema#string</a><i> (The edition of a book (for example, "Second"). This should be an ordinal.)</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="how_published">how_published</a></b>(<i><a href="#Misc.">#Misc.</a></i> | <i><a href="#Booklet">#Booklet</a></i>) -&gt;  <a href="http://www.w3.org/2001/XMLSchema#string">http://www.w3.org/2001/XMLSchema#string</a><i> (How something strange has been published.)</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="note">note</a></b> <a href="#REFERENCE">#REFERENCE</a> -&gt;  <a href="http://www.w3.org/2001/XMLSchema#string">http://www.w3.org/2001/XMLSchema#string</a><i> (Any additional information that can help the reader.)</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="series">series</a></b> <a href="#REFERENCE">#REFERENCE</a> -&gt;  <a href="http://www.w3.org/2001/XMLSchema#string">http://www.w3.org/2001/XMLSchema#string</a><i> (The name of a series or set of books. When citing an entire book, the the title field gives its title and an optional series field gives the name of a series or multi-volume set in which the book is published.)</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="title">title</a></b> <a href="#REFERENCE">#REFERENCE</a> -&gt;  <a href="http://www.w3.org/2001/XMLSchema#string">http://www.w3.org/2001/XMLSchema#string</a><i> (The title of the work.)</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="type">type</a></b>(<i><a href="#Chapter">#Chapter</a></i> | <i><a href="#Technical_report">#Technical_report</a></i> | <i><a href="#Academic">#Academic</a></i>) -&gt;  <a href="http://www.w3.org/2001/XMLSchema#string">http://www.w3.org/2001/XMLSchema#string</a><i> (The type of a technical report (for example, "Research Note").)</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="affiliation">affiliation</a></b> <a href="#REFERENCE">#REFERENCE</a> -&gt;  <a href="http://www.w3.org/2001/XMLSchema#string">http://www.w3.org/2001/XMLSchema#string</a><i> (The authors affiliation.)</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="abstract">abstract</a></b> <a href="#REFERENCE">#REFERENCE</a> -&gt;  <a href="http://www.w3.org/2001/XMLSchema#string">http://www.w3.org/2001/XMLSchema#string</a><i> (The abstract of the work.)</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="contents">contents</a></b> <a href="#REFERENCE">#REFERENCE</a> -&gt;  <a href="http://www.w3.org/2001/XMLSchema#string">http://www.w3.org/2001/XMLSchema#string</a><i> (The Table of Contents.)</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="copyright">copyright</a></b> <a href="#REFERENCE">#REFERENCE</a> -&gt;  <a href="http://www.w3.org/2001/XMLSchema#string">http://www.w3.org/2001/XMLSchema#string</a><i> (The Copyright information.)</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="I.S.B.N.">I.S.B.N.</a></b> <a href="#REFERENCE">#REFERENCE</a> -&gt;  <a href="http://www.w3.org/2001/XMLSchema#string">http://www.w3.org/2001/XMLSchema#string</a><i> (The International Standard Book Number.)</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="I.S.S.N.">I.S.S.N.</a></b> <a href="#REFERENCE">#REFERENCE</a> -&gt;  <a href="http://www.w3.org/2001/XMLSchema#string">http://www.w3.org/2001/XMLSchema#string</a><i> (The International Standard Serial Number. Used to identify a journal.)</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="keywords">keywords</a></b> <a href="#REFERENCE">#REFERENCE</a> -&gt;  <a href="http://www.w3.org/2001/XMLSchema#string">http://www.w3.org/2001/XMLSchema#string</a><i> (Key words used for searching or possibly for annotation (as given by the author or publisher).)</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="language">language</a></b> <a href="#REFERENCE">#REFERENCE</a> -&gt;  <a href="http://www.w3.org/2001/XMLSchema#language">http://www.w3.org/2001/XMLSchema#language</a><i> (The language in which the referenced publication is written or performed (use ISO two-letter codes).)</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="L.C.C.N.">L.C.C.N.</a></b> <a href="#REFERENCE">#REFERENCE</a> -&gt;  <a href="http://www.w3.org/2001/XMLSchema#string">http://www.w3.org/2001/XMLSchema#string</a><i> (The Library of Congress Call Number (this the Congress of the United State of America).)</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="M.R.Nb">M.R.Nb</a></b> <a href="#REFERENCE">#REFERENCE</a> -&gt;  <a href="http://www.w3.org/2001/XMLSchema#string">http://www.w3.org/2001/XMLSchema#string</a><i> (The Mathematical Reviews number.)</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="price">price</a></b> <a href="#REFERENCE">#REFERENCE</a> -&gt;  <a href="http://www.w3.org/2001/XMLSchema#string">http://www.w3.org/2001/XMLSchema#string</a><i> (The price of the document.)</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="size">size</a></b> <a href="#REFERENCE">#REFERENCE</a> -&gt;  <a href="http://www.w3.org/2001/XMLSchema#string">http://www.w3.org/2001/XMLSchema#string</a><i> (The physical dimensions of a document.)</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="U.R.L.">U.R.L.</a></b> <a href="#REFERENCE">#REFERENCE</a> -&gt;  <a href="http://www.w3.org/2001/XMLSchema#string">http://www.w3.org/2001/XMLSchema#string</a><i> (The Universal Resource Locator that points to the item being referenced.)</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="name">name</a></b>_ -&gt;  <a href="http://www.w3.org/2001/XMLSchema#string">http://www.w3.org/2001/XMLSchema#string</a><i> ()</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="short_name">short_name</a></b>_ -&gt;  <a href="http://www.w3.org/2001/XMLSchema#string">http://www.w3.org/2001/XMLSchema#string</a><i> ()</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="chapter">chapter</a></b> <a href="#Part">#Part</a> -&gt;  <a href="http://www.w3.org/2001/XMLSchema#string">http://www.w3.org/2001/XMLSchema#string</a><i> (The chapter (or section or whatever) number in which the entry is found.)</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="number_or_volume">number_or_volume</a></b> <a href="#REFERENCE">#REFERENCE</a> -&gt; _<i> (The number of a journal, magazine, technical report, or of a work in a series. An issue of a journal or magazine is usually identified by its volume and number; the organization that issues a technical report usually gives it a number; and sometimes books are given numbers in a named series.)</i>
+</dt>
+<dd><dl>
+<dt>
+<b><a name="number">number</a></b> <a href="#REFERENCE">#REFERENCE</a> -&gt;  <a href="http://www.w3.org/2001/XMLSchema#string">http://www.w3.org/2001/XMLSchema#string</a><i> (The number of a journal, magazine, technical report, or of a work in a series. An issue of a journal or magazine is usually identified by its volume and number; the organization that issues a technical report usually gives it a number; and sometimes books are given numbers in a named series.)</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="issue">issue</a></b>(<i><a href="#REFERENCE">#REFERENCE</a></i> | <i><a href="#CONFERENCE">#CONFERENCE</a></i>) -&gt;  <a href="http://www.w3.org/2001/XMLSchema#string">http://www.w3.org/2001/XMLSchema#string</a><i> (The issue of a conference.)</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="volume">volume</a></b> <a href="#REFERENCE">#REFERENCE</a> -&gt;  <a href="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">http://www.w3.org/2001/XMLSchema#nonNegativeInteger</a><i> (The volume of a journal or multivolume book.)</i>
+</dt>
+<dd><dl></dl></dd>
+</dl></dd>
+<dt>
+<b><a name="year">year</a></b> <a href="#DATE">#DATE</a> -&gt;  <a href="http://www.w3.org/2001/XMLSchema#gYear">http://www.w3.org/2001/XMLSchema#gYear</a><i> ()</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="month">month</a></b> <a href="#DATE">#DATE</a> -&gt;  <a href="http://www.w3.org/2001/XMLSchema#gMonth">http://www.w3.org/2001/XMLSchema#gMonth</a><i> ()</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="day">day</a></b> <a href="#DATE">#DATE</a> -&gt;  <a href="http://www.w3.org/2001/XMLSchema#gDay">http://www.w3.org/2001/XMLSchema#gDay</a><i> ()</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="city">city</a></b> <a href="#ADDRESS">#ADDRESS</a> -&gt;  <a href="http://www.w3.org/2001/XMLSchema#string">http://www.w3.org/2001/XMLSchema#string</a><i> ()</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="state">state</a></b> <a href="#ADDRESS">#ADDRESS</a> -&gt;  <a href="http://www.w3.org/2001/XMLSchema#string">http://www.w3.org/2001/XMLSchema#string</a><i> ()</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="country">country</a></b> <a href="#ADDRESS">#ADDRESS</a> -&gt;  <a href="http://www.w3.org/2001/XMLSchema#string">http://www.w3.org/2001/XMLSchema#string</a><i> (Usually in ISO format)</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="start_page">start_page</a></b> <a href="#PAGE_RANGE">#PAGE_RANGE</a> -&gt;  <a href="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">http://www.w3.org/2001/XMLSchema#nonNegativeInteger</a><i> (The beginning of a range of pages.)</i>
+</dt>
+<dd><dl></dl></dd>
+<dt>
+<b><a name="end_page">end_page</a></b> <a href="#PAGE_RANGE">#PAGE_RANGE</a> -&gt;  <a href="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">http://www.w3.org/2001/XMLSchema#nonNegativeInteger</a><i> (The end of a range of pages.)</i>
+</dt>
+<dd><dl></dl></dd>
+</dl>
+<h2>Individuals</h2>
+<dl>
+<dt>&lt;rdf:List@<a name="ttp://www.w3.org/1999/02/22-rdf-syntax-ns#nil">ttp://www.w3.org/1999/02/22-rdf-syntax-ns#nil</a>&gt;</dt>
+<dd><ul compact></ul></dd>
+<dt>&lt;foaf:Person@<a name="a04570373">a04570373</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = 'John-Jules Meyer'</li>
+<li>foaf:name = 'John-Jules Meyer'</li>
+<li>foaf:firstName = 'John-Jules'</li>
+<li>lastName = 'Meyer'</li>
+</ul></dd>
+<dt>&lt;foaf:Person@<a name="a43836633">a43836633</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = 'Jeen Broekstra'</li>
+<li>foaf:name = 'Jeen Broekstra'</li>
+<li>foaf:firstName = 'Jeen'</li>
+<li>lastName = 'Broekstra'</li>
+</ul></dd>
+<dt>&lt;foaf:Person@<a name="a85228505">a85228505</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = 'Alexander Mädche'</li>
+<li>foaf:name = 'Alexander Mädche'</li>
+<li>foaf:firstName = 'Alexander'</li>
+<li>lastName = 'Mädche'</li>
+</ul></dd>
+<dt>&lt;foaf:Person@<a name="a48552212">a48552212</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = 'Björn Schnizler'</li>
+<li>foaf:name = 'Björn Schnizler'</li>
+<li>foaf:firstName = 'Björn'</li>
+<li>lastName = 'Schnizler'</li>
+</ul></dd>
+<dt>&lt;foaf:Person@<a name="a971541439">a971541439</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = 'Alberto Trombetta'</li>
+<li>foaf:name = 'Alberto Trombetta'</li>
+<li>foaf:firstName = 'Alberto'</li>
+<li>lastName = 'Trombetta'</li>
+</ul></dd>
+<dt>&lt;foaf:Person@<a name="a11090777">a11090777</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = 'Christine Parent'</li>
+<li>foaf:name = 'Christine Parent'</li>
+<li>foaf:firstName = 'Christine'</li>
+<li>lastName = 'Parent'</li>
+</ul></dd>
+<dt>&lt;foaf:Person@<a name="a250331360">a250331360</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = 'R. Schmidt'</li>
+<li>foaf:name = 'R. Schmidt'</li>
+<li>foaf:firstName = 'R.'</li>
+<li>lastName = 'Schmidt'</li>
+</ul></dd>
+<dt>&lt;foaf:Person@<a name="a79573306">a79573306</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = 'York Sure'</li>
+<li>foaf:name = 'York Sure'</li>
+<li>foaf:firstName = 'York'</li>
+<li>lastName = 'Sure'</li>
+</ul></dd>
+<dt>&lt;foaf:Person@<a name="a885257047">a885257047</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = 'M. Punceva'</li>
+<li>foaf:name = 'M. Punceva'</li>
+<li>foaf:firstName = 'M.'</li>
+<li>lastName = 'Punceva'</li>
+</ul></dd>
+<dt>&lt;foaf:Person@<a name="a74993404">a74993404</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = 'I. V. Levenshtein'</li>
+<li>foaf:name = 'I. V. Levenshtein'</li>
+<li>foaf:firstName = 'I. V.'</li>
+<li>lastName = 'Levenshtein'</li>
+</ul></dd>
+<dt>&lt;foaf:Person@<a name="a71003986">a71003986</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = 'Steffen Staab'</li>
+<li>foaf:name = 'Steffen Staab'</li>
+<li>foaf:firstName = 'Steffen'</li>
+<li>lastName = 'Staab'</li>
+</ul></dd>
+<dt>&lt;foaf:Person@<a name="a572406328">a572406328</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = 'Frank Boer'</li>
+<li>foaf:name = 'Frank Boer'</li>
+<li>foaf:firstName = 'Frank'</li>
+<li>lastName = 'Boer'</li>
+</ul></dd>
+<dt>&lt;foaf:Person@<a name="a139477786">a139477786</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = 'Maarten Menken'</li>
+<li>foaf:name = 'Maarten Menken'</li>
+<li>foaf:firstName = 'Maarten'</li>
+<li>lastName = 'Menken'</li>
+</ul></dd>
+<dt>&lt;foaf:Person@<a name="a337716610">a337716610</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = 'Manfred Hauswirth'</li>
+<li>foaf:name = 'Manfred Hauswirth'</li>
+<li>foaf:firstName = 'Manfred'</li>
+<li>lastName = 'Hauswirth'</li>
+</ul></dd>
+<dt>&lt;foaf:Person@<a name="a086379337">a086379337</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = 'Wiebe Hoek'</li>
+<li>foaf:name = 'Wiebe Hoek'</li>
+<li>foaf:firstName = 'Wiebe'</li>
+<li>lastName = 'Hoek'</li>
+</ul></dd>
+<dt>&lt;foaf:Person@<a name="a712561038">a712561038</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = 'Marc Ehrig'</li>
+<li>foaf:name = 'Marc Ehrig'</li>
+<li>foaf:firstName = 'Marc'</li>
+<li>lastName = 'Ehrig'</li>
+</ul></dd>
+<dt>&lt;foaf:Person@<a name="a066600210">a066600210</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = 'Danilo Montesi'</li>
+<li>foaf:name = 'Danilo Montesi'</li>
+<li>foaf:firstName = 'Danilo'</li>
+<li>lastName = 'Montesi'</li>
+</ul></dd>
+<dt>&lt;foaf:Person@<a name="a093016135">a093016135</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = 'Rogier Eijk'</li>
+<li>foaf:name = 'Rogier Eijk'</li>
+<li>foaf:firstName = 'Rogier'</li>
+<li>lastName = 'Eijk'</li>
+</ul></dd>
+<dt>&lt;foaf:Person@<a name="a944339054">a944339054</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = 'Frank van Harmelen'</li>
+<li>foaf:name = 'Frank van Harmelen'</li>
+<li>foaf:firstName = 'Frank'</li>
+<li>lastName = 'van Harmelen'</li>
+</ul></dd>
+<dt>&lt;foaf:Person@<a name="a98078619">a98078619</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = 'Philippe Cudré-Mauroux'</li>
+<li>foaf:name = 'Philippe Cudré-Mauroux'</li>
+<li>foaf:firstName = 'Philippe'</li>
+<li>lastName = 'Cudré-Mauroux'</li>
+</ul></dd>
+<dt>&lt;foaf:Person@<a name="a39510672">a39510672</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = 'Z. Despotovic'</li>
+<li>foaf:name = 'Z. Despotovic'</li>
+<li>foaf:firstName = 'Z.'</li>
+<li>lastName = 'Despotovic'</li>
+</ul></dd>
+<dt>&lt;foaf:Person@<a name="a431956276">a431956276</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = 'Stefano Spaccapietra'</li>
+<li>foaf:name = 'Stefano Spaccapietra'</li>
+<li>foaf:firstName = 'Stefano'</li>
+<li>lastName = 'Spaccapietra'</li>
+</ul></dd>
+<dt>&lt;foaf:Person@<a name="a431956276b">a431956276b</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = 'Mike Papazoglou'</li>
+<li>foaf:name = 'Mike Papazoglou'</li>
+<li>foaf:firstName = 'Mike'</li>
+<li>lastName = 'Papazoglou'</li>
+</ul></dd>
+<dt>&lt;foaf:Person@<a name="a431956276c">a431956276c</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = 'Zahir Tari'</li>
+<li>foaf:name = 'Zahir Tari'</li>
+<li>foaf:firstName = 'Zahir'</li>
+<li>lastName = 'Tari'</li>
+</ul></dd>
+<dt>&lt;foaf:Person@<a name="a70955601">a70955601</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = 'A. Datta'</li>
+<li>foaf:name = 'A. Datta'</li>
+<li>foaf:firstName = 'A.'</li>
+<li>lastName = 'Datta'</li>
+</ul></dd>
+<dt>&lt;foaf:Person@<a name="a467748807">a467748807</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = 'Ateret Anaby-Tavor'</li>
+<li>foaf:name = 'Ateret Anaby-Tavor'</li>
+<li>foaf:firstName = 'Ateret'</li>
+<li>lastName = 'Anaby-Tavor'</li>
+</ul></dd>
+<dt>&lt;foaf:Person@<a name="a3105947">a3105947</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = 'Ronny Siebes'</li>
+<li>foaf:name = 'Ronny Siebes'</li>
+<li>foaf:firstName = 'Ronny'</li>
+<li>lastName = 'Siebes'</li>
+</ul></dd>
+<dt>&lt;foaf:Person@<a name="a29105611">a29105611</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = 'Karl Aberer'</li>
+<li>foaf:name = 'Karl Aberer'</li>
+<li>foaf:firstName = 'Karl'</li>
+<li>lastName = 'Aberer'</li>
+</ul></dd>
+<dt>&lt;foaf:Person@<a name="a958684218">a958684218</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = 'Peter Mika'</li>
+<li>foaf:name = 'Peter Mika'</li>
+<li>foaf:firstName = 'Peter'</li>
+<li>lastName = 'Mika'</li>
+</ul></dd>
+<dt>&lt;foaf:Person@<a name="a94533498">a94533498</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = 'Peter Haase'</li>
+<li>foaf:name = 'Peter Haase'</li>
+<li>foaf:firstName = 'Peter'</li>
+<li>lastName = 'Haase'</li>
+</ul></dd>
+<dt>&lt;foaf:Person@<a name="a900366022">a900366022</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = 'Avigdor Gal'</li>
+<li>foaf:name = 'Avigdor Gal'</li>
+<li>foaf:firstName = 'Avigdor'</li>
+<li>lastName = 'Gal'</li>
+</ul></dd>
+<dt>&lt;JOURNAL@<a name="a246119474">a246119474</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = 'Journal of Web Semantics'</li>
+<li>foaf:name = 'Journal of Web Semantics'</li>
+<li>short_name = 'JWS'</li>
+</ul></dd>
+<dt>&lt;Publisher@<a name="a131020767">a131020767</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = 'Springer-Verlag'</li>
+<li>name = 'Springer-Verlag'</li>
+<li>address = <dt>&lt;ADDRESS@<a name=""></a>&gt;</dt>
+<dd><ul compact>
+<li>city = 'Heidelberg'</li>
+<li>country = 'DE'</li>
+</ul></dd>
+</li>
+</ul></dd>
+<dt>&lt;JOURNAL@<a name="a70981683">a70981683</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = 'Cybernetics and Control Theory'</li>
+<li>name = 'Cybernetics and Control Theory'</li>
+</ul></dd>
+<dt>&lt;Publisher@<a name="a85849488">a85849488</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = 'The MIT Press'</li>
+<li>name = 'The MIT Press'</li>
+<li>address = <dt>&lt;ADDRESS@<a name=""></a>&gt;</dt>
+<dd><ul compact>
+<li>city = 'Cambridge'</li>
+<li>state = 'MA'</li>
+<li>country = 'US'</li>
+</ul></dd>
+</li>
+</ul></dd>
+<dt>&lt;JOURNAL@<a name="a362042121">a362042121</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = 'International journal of intelligent system'</li>
+<li>name = 'International journal of intelligent system'</li>
+<li>short_name = 'IJIS'</li>
+</ul></dd>
+<dt>&lt;JOURNAL@<a name="a674639524">a674639524</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = 'ACM SIGMOD Record'</li>
+<li>name = 'ACM SIGMOD Record'</li>
+</ul></dd>
+<dt>&lt;JOURNAL@<a name="a906774044">a906774044</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = 'VLDB Journal'</li>
+<li>name = 'VLDB Journal'</li>
+</ul></dd>
+<dt>&lt;CONFERENCE@<a name="spg04">spg04</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = 'SemPGrid 04 Workshop'</li>
+<li>name = 'SemPGrid 04 Workshop'</li>
+<li>location = <dt>&lt;ADDRESS@<a name=""></a>&gt;</dt>
+<dd><ul compact>
+<li>city = 'New-York'</li>
+<li>state = 'NY'</li>
+<li>country = 'US'</li>
+</ul></dd>
+</li>
+<li>date = <dt>&lt;DATE@<a name=""></a>&gt;</dt>
+<dd><ul compact>
+<li>month = '--05'</li>
+<li>year = '2004'</li>
+</ul></dd>
+</li>
+</ul></dd>
+<dt>&lt;CONFERENCE@<a name="a72192307c">a72192307c</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = '13th Int. Conference on Knowledge Engineering and Management (EKAW-2002)'</li>
+<li>name = 'Int. Conference on Knowledge Engineering and Management'</li>
+<li>short_name = 'EKAW'</li>
+<li>issue = '13'</li>
+<li>date = <dt>&lt;DATE@<a name=""></a>&gt;</dt>
+<dd><ul compact>
+<li>month = '--10'</li>
+<li>year = '2002'</li>
+</ul></dd>
+</li>
+</ul></dd>
+<dt>&lt;CONFERENCE@<a name="a32071928c">a32071928c</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = 'First European Semantic Web Symposium'</li>
+<li>name = 'European Semantic Web Symposium'</li>
+<li>short_name = 'ESWS'</li>
+<li>issue = '1'</li>
+<li>location = <dt>&lt;ADDRESS@<a name=""></a>&gt;</dt>
+<dd><ul compact>
+<li>city = 'Heraklion'</li>
+<li>country = 'GR'</li>
+</ul></dd>
+</li>
+<li>date = <dt>&lt;DATE@<a name=""></a>&gt;</dt>
+<dd><ul compact>
+<li>month = '--05'</li>
+<li>year = '2004'</li>
+</ul></dd>
+</li>
+</ul></dd>
+<dt>&lt;Proc.@<a name="a060097576">a060097576</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = 'Proceedings of the SemPGrid 04 Workshop'</li>
+<li>title = 'Proceedings of the SemPGrid 04 Workshop'</li>
+<li>date = <dt>&lt;DATE@<a name=""></a>&gt;</dt>
+<dd><ul compact><li>year = '2004'</li></ul></dd>
+</li>
+<li>event = &lt;_@<a href="#spg04">#spg04</a>&gt;</li>
+</ul></dd>
+<dt>&lt;In_proceedings@<a name="a64263824">a64263824</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = 'Bibster - A Semantics-Based Bibliographic Peer-to-Peer System'</li>
+<li>author = <dt>&lt;PERSON_LIST@<a name=""></a>&gt;</dt>
+<dd><ul compact>
+<li>rdf:first = &lt;_@<a href="#a43836633">#a43836633</a>&gt;</li>
+<li>rdf:rest = <dt>&lt;PERSON_LIST@<a name=""></a>&gt;</dt>
+<dd><ul compact>
+<li>rdf:first = &lt;_@<a href="#a712561038">#a712561038</a>&gt;</li>
+<li>rdf:rest = <dt>&lt;PERSON_LIST@<a name=""></a>&gt;</dt>
+<dd><ul compact>
+<li>rdf:first = &lt;_@<a href="#a94533498">#a94533498</a>&gt;</li>
+<li>rdf:rest = <dt>&lt;PERSON_LIST@<a name=""></a>&gt;</dt>
+<dd><ul compact>
+<li>rdf:first = &lt;_@<a href="#a944339054">#a944339054</a>&gt;</li>
+<li>rdf:rest = <dt>&lt;PERSON_LIST@<a name=""></a>&gt;</dt>
+<dd><ul compact>
+<li>rdf:first = &lt;_@<a href="#a139477786">#a139477786</a>&gt;</li>
+<li>rdf:rest = <dt>&lt;PERSON_LIST@<a name=""></a>&gt;</dt>
+<dd><ul compact>
+<li>rdf:first = &lt;_@<a href="#a958684218">#a958684218</a>&gt;</li>
+<li>rdf:rest = <dt>&lt;PERSON_LIST@<a name=""></a>&gt;</dt>
+<dd><ul compact>
+<li>rdf:first = &lt;_@<a href="#a48552212">#a48552212</a>&gt;</li>
+<li>rdf:rest = <dt>&lt;PERSON_LIST@<a name=""></a>&gt;</dt>
+<dd><ul compact>
+<li>rdf:first = &lt;_@<a href="#a3105947">#a3105947</a>&gt;</li>
+<li>rdf:rest = &lt;_@<a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil">http://www.w3.org/1999/02/22-rdf-syntax-ns#nil</a>&gt;</li>
+</ul></dd>
+</li>
+</ul></dd>
+</li>
+</ul></dd>
+</li>
+</ul></dd>
+</li>
+</ul></dd>
+</li>
+</ul></dd>
+</li>
+</ul></dd>
+</li>
+</ul></dd>
+</li>
+<li>proceedings = &lt;_@<a href="#a060097576">#a060097576</a>&gt;</li>
+<li>title = 'Bibster - A Semantics-Based Bibliographic Peer-to-Peer System'</li>
+</ul></dd>
+<dt>&lt;In_proceedings@<a name="a439508789">a439508789</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = 'Measuring Similarity between Ontologies'</li>
+<li>author = <dt>&lt;PERSON_LIST@<a name=""></a>&gt;</dt>
+<dd><ul compact>
+<li>rdf:first = &lt;_@<a href="#a85228505">#a85228505</a>&gt;</li>
+<li>rdf:rest = <dt>&lt;PERSON_LIST@<a name=""></a>&gt;</dt>
+<dd><ul compact>
+<li>rdf:first = &lt;_@<a href="#a71003986">#a71003986</a>&gt;</li>
+<li>rdf:rest = &lt;_@<a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil">http://www.w3.org/1999/02/22-rdf-syntax-ns#nil</a>&gt;</li>
+</ul></dd>
+</li>
+</ul></dd>
+</li>
+<li>proceedings = &lt;_@<a href="#a72192307">#a72192307</a>&gt;</li>
+<li>title = 'Measuring Similarity between Ontologies'</li>
+</ul></dd>
+<dt>&lt;Article@<a name="a492378321">a492378321</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = '{P-Grid: A Self-organizing Structured P2P System}'</li>
+<li>author = <dt>&lt;PERSON_LIST@<a name=""></a>&gt;</dt>
+<dd><ul compact>
+<li>rdf:first = &lt;_@<a href="#a29105611">#a29105611</a>&gt;</li>
+<li>rdf:rest = <dt>&lt;PERSON_LIST@<a name=""></a>&gt;</dt>
+<dd><ul compact>
+<li>rdf:first = &lt;_@<a href="#a98078619">#a98078619</a>&gt;</li>
+<li>rdf:rest = <dt>&lt;PERSON_LIST@<a name=""></a>&gt;</dt>
+<dd><ul compact>
+<li>rdf:first = &lt;_@<a href="#a70955601">#a70955601</a>&gt;</li>
+<li>rdf:rest = <dt>&lt;PERSON_LIST@<a name=""></a>&gt;</dt>
+<dd><ul compact>
+<li>rdf:first = &lt;_@<a href="#a39510672">#a39510672</a>&gt;</li>
+<li>rdf:rest = <dt>&lt;PERSON_LIST@<a name=""></a>&gt;</dt>
+<dd><ul compact>
+<li>rdf:first = &lt;_@<a href="#a337716610">#a337716610</a>&gt;</li>
+<li>rdf:rest = <dt>&lt;PERSON_LIST@<a name=""></a>&gt;</dt>
+<dd><ul compact>
+<li>rdf:first = &lt;_@<a href="#a885257047">#a885257047</a>&gt;</li>
+<li>rdf:rest = <dt>&lt;PERSON_LIST@<a name=""></a>&gt;</dt>
+<dd><ul compact>
+<li>rdf:first = &lt;_@<a href="#a250331360">#a250331360</a>&gt;</li>
+<li>rdf:rest = &lt;_@<a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil">http://www.w3.org/1999/02/22-rdf-syntax-ns#nil</a>&gt;</li>
+</ul></dd>
+</li>
+</ul></dd>
+</li>
+</ul></dd>
+</li>
+</ul></dd>
+</li>
+</ul></dd>
+</li>
+</ul></dd>
+</li>
+</ul></dd>
+</li>
+<li>journal = &lt;_@<a href="#a674639524">#a674639524</a>&gt;</li>
+<li>title = '{P-Grid}: A Self-organizing Structured P2P System'</li>
+<li>date = <dt>&lt;DATE@<a name=""></a>&gt;</dt>
+<dd><ul compact><li>year = '2003'</li></ul></dd>
+</li>
+</ul></dd>
+<dt>&lt;Article@<a name="a475526642">a475526642</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = 'Binary Codes capable of correcting deletions, insertions, and reversals'</li>
+<li>author = <dt>&lt;PERSON_LIST@<a name=""></a>&gt;</dt>
+<dd><ul compact>
+<li>rdf:first = &lt;_@<a href="#a74993404">#a74993404</a>&gt;</li>
+<li>rdf:rest = &lt;_@<a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil">http://www.w3.org/1999/02/22-rdf-syntax-ns#nil</a>&gt;</li>
+</ul></dd>
+</li>
+<li>journal = &lt;_@<a href="#a70981683">#a70981683</a>&gt;</li>
+<li>title = 'Binary Codes capable of correcting deletions, insertions, and reversals'</li>
+<li>date = <dt>&lt;DATE@<a name=""></a>&gt;</dt>
+<dd><ul compact><li>year = '1996'</li></ul></dd>
+</li>
+</ul></dd>
+<dt>&lt;In_book@<a name="a71568377">a71568377</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = 'Database integration: the key to data interoperability'</li>
+<li>author = <dt>&lt;PERSON_LIST@<a name=""></a>&gt;</dt>
+<dd><ul compact>
+<li>rdf:first = &lt;_@<a href="#a11090777">#a11090777</a>&gt;</li>
+<li>rdf:rest = <dt>&lt;PERSON_LIST@<a name=""></a>&gt;</dt>
+<dd><ul compact>
+<li>rdf:first = &lt;_@<a href="#a431956276">#a431956276</a>&gt;</li>
+<li>rdf:rest = &lt;_@<a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil">http://www.w3.org/1999/02/22-rdf-syntax-ns#nil</a>&gt;</li>
+</ul></dd>
+</li>
+</ul></dd>
+</li>
+<li>book = &lt;_@<a href="#a108048723">#a108048723</a>&gt;</li>
+<li>title = 'Database integration: the key to data interoperability'</li>
+<li>editor = <dt>&lt;PERSON_LIST@<a name=""></a>&gt;</dt>
+<dd><ul compact>
+<li>rdf:first = &lt;_@<a href="#a431956276">#a431956276</a>&gt;</li>
+<li>rdf:rest = <dt>&lt;PERSON_LIST@<a name=""></a>&gt;</dt>
+<dd><ul compact>
+<li>rdf:first = &lt;_@<a href="#a431956276b">#a431956276b</a>&gt;</li>
+<li>rdf:rest = <dt>&lt;PERSON_LIST@<a name=""></a>&gt;</dt>
+<dd><ul compact>
+<li>rdf:first = &lt;_@<a href="#a431956276c">#a431956276c</a>&gt;</li>
+<li>rdf:rest = &lt;_@<a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil">http://www.w3.org/1999/02/22-rdf-syntax-ns#nil</a>&gt;</li>
+</ul></dd>
+</li>
+</ul></dd>
+</li>
+</ul></dd>
+</li>
+</ul></dd>
+<dt>&lt;Proc.@<a name="a72192307">a72192307</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = 'Proc. Of the 13th Int. Conference on Knowledge Engineering and Management (EKAW-2002)'</li>
+<li>publisher = &lt;_@<a href="#a131020767">#a131020767</a>&gt;</li>
+<li>title = 'Proc. Of the 13th Int. Conference on Knowledge Engineering and Management (EKAW-2002)'</li>
+<li>event = &lt;_@<a href="#a72192307c">#a72192307c</a>&gt;</li>
+<li>date = <dt>&lt;DATE@<a name=""></a>&gt;</dt>
+<dd><ul compact><li>year = '2002'</li></ul></dd>
+</li>
+</ul></dd>
+<dt>&lt;Proc.@<a name="a32071928">a32071928</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = 'Proceedings of the First European Semantic Web Symposium'</li>
+<li>publisher = &lt;_@<a href="#a131020767">#a131020767</a>&gt;</li>
+<li>event = &lt;_@<a href="#a32071928c">#a32071928c</a>&gt;</li>
+<li>title = 'Proceedings of the First European Semantic Web Symposium'</li>
+<li>date = <dt>&lt;DATE@<a name=""></a>&gt;</dt>
+<dd><ul compact><li>year = '2004'</li></ul></dd>
+</li>
+</ul></dd>
+<dt>&lt;Misc.@<a name="a140583454">a140583454</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = '{QOM} - Quick Ontology Mapping'</li>
+<li>author = <dt>&lt;PERSON_LIST@<a name=""></a>&gt;</dt>
+<dd><ul compact>
+<li>rdf:first = &lt;_@<a href="#a712561038">#a712561038</a>&gt;</li>
+<li>rdf:rest = <dt>&lt;PERSON_LIST@<a name=""></a>&gt;</dt>
+<dd><ul compact>
+<li>rdf:first = &lt;_@<a href="#a71003986">#a71003986</a>&gt;</li>
+<li>rdf:rest = &lt;_@<a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil">http://www.w3.org/1999/02/22-rdf-syntax-ns#nil</a>&gt;</li>
+</ul></dd>
+</li>
+</ul></dd>
+</li>
+<li>title = '{QOM} - Quick Ontology Mapping'</li>
+<li>note = 'submitted to the ISWC 04'</li>
+<li>date = <dt>&lt;DATE@<a name=""></a>&gt;</dt>
+<dd><ul compact><li>year = '2004'</li></ul></dd>
+</li>
+</ul></dd>
+<dt>&lt;In_proceedings@<a name="a11065952">a11065952</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = 'Ontology Mapping - An Integrated Approach'</li>
+<li>author = <dt>&lt;PERSON_LIST@<a name=""></a>&gt;</dt>
+<dd><ul compact>
+<li>rdf:first = &lt;_@<a href="#a712561038">#a712561038</a>&gt;</li>
+<li>rdf:rest = <dt>&lt;PERSON_LIST@<a name=""></a>&gt;</dt>
+<dd><ul compact>
+<li>rdf:first = &lt;_@<a href="#a79573306">#a79573306</a>&gt;</li>
+<li>rdf:rest = &lt;_@<a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil">http://www.w3.org/1999/02/22-rdf-syntax-ns#nil</a>&gt;</li>
+</ul></dd>
+</li>
+</ul></dd>
+</li>
+<li>proceedings = &lt;_@<a href="#a32071928">#a32071928</a>&gt;</li>
+<li>title = 'Ontology Mapping - An Integrated Approach'</li>
+<li>U.R.L. = 'http://www.aifb.uni-karlsruhe.de/WBS/meh/publications/ehrig04ontology_ESWS04.pdf'</li>
+</ul></dd>
+<dt>&lt;Article@<a name="a80299267">a80299267</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = 'Start making sense: The Chatty Web approach for global semantic agreements'</li>
+<li>author = <dt>&lt;PERSON_LIST@<a name=""></a>&gt;</dt>
+<dd><ul compact>
+<li>rdf:first = &lt;_@<a href="#a29105611">#a29105611</a>&gt;</li>
+<li>rdf:rest = <dt>&lt;PERSON_LIST@<a name=""></a>&gt;</dt>
+<dd><ul compact>
+<li>rdf:first = &lt;_@<a href="#a98078619">#a98078619</a>&gt;</li>
+<li>rdf:rest = <dt>&lt;PERSON_LIST@<a name=""></a>&gt;</dt>
+<dd><ul compact>
+<li>rdf:first = &lt;_@<a href="#a337716610">#a337716610</a>&gt;</li>
+<li>rdf:rest = &lt;_@<a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil">http://www.w3.org/1999/02/22-rdf-syntax-ns#nil</a>&gt;</li>
+</ul></dd>
+</li>
+</ul></dd>
+</li>
+</ul></dd>
+</li>
+<li>journal = &lt;_@<a href="#a246119474">#a246119474</a>&gt;</li>
+<li>title = 'Start making sense: The Chatty Web approach for global semantic agreements'</li>
+<li>date = <dt>&lt;DATE@<a name=""></a>&gt;</dt>
+<dd><ul compact>
+<li>month = '--12'</li>
+<li>year = '2003'</li>
+</ul></dd>
+</li>
+</ul></dd>
+<dt>&lt;Monograph@<a name="a108048723">a108048723</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = 'Object-Oriented Data Modeling'</li>
+<li>publisher = &lt;_@<a href="#a85849488">#a85849488</a>&gt;</li>
+<li>title = 'Object-Oriented Data Modeling'</li>
+<li>date = <dt>&lt;DATE@<a name=""></a>&gt;</dt>
+<dd><ul compact><li>year = '2000'</li></ul></dd>
+</li>
+</ul></dd>
+<dt>&lt;Article@<a name="a456080390">a456080390</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = 'On dynamically generated ontology translators in agent communication'</li>
+<li>author = <dt>&lt;PERSON_LIST@<a name=""></a>&gt;</dt>
+<dd><ul compact>
+<li>rdf:first = &lt;_@<a href="#a093016135">#a093016135</a>&gt;</li>
+<li>rdf:rest = <dt>&lt;PERSON_LIST@<a name=""></a>&gt;</dt>
+<dd><ul compact>
+<li>rdf:first = &lt;_@<a href="#a572406328">#a572406328</a>&gt;</li>
+<li>rdf:rest = <dt>&lt;PERSON_LIST@<a name=""></a>&gt;</dt>
+<dd><ul compact>
+<li>rdf:first = &lt;_@<a href="#a086379337">#a086379337</a>&gt;</li>
+<li>rdf:rest = <dt>&lt;PERSON_LIST@<a name=""></a>&gt;</dt>
+<dd><ul compact>
+<li>rdf:first = &lt;_@<a href="#a04570373">#a04570373</a>&gt;</li>
+<li>rdf:rest = &lt;_@<a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil">http://www.w3.org/1999/02/22-rdf-syntax-ns#nil</a>&gt;</li>
+</ul></dd>
+</li>
+</ul></dd>
+</li>
+</ul></dd>
+</li>
+</ul></dd>
+</li>
+<li>journal = &lt;_@<a href="#a362042121">#a362042121</a>&gt;</li>
+<li>title = 'On dynamically generated ontology translators in agent communication'</li>
+<li>pages = <dt>&lt;PAGE_RANGE@<a name=""></a>&gt;</dt>
+<dd><ul compact>
+<li>start_page = '587'</li>
+<li>end_page = '607'</li>
+</ul></dd>
+</li>
+<li>date = <dt>&lt;DATE@<a name=""></a>&gt;</dt>
+<dd><ul compact>
+<li>month = '--12'</li>
+<li>year = '2001'</li>
+</ul></dd>
+</li>
+</ul></dd>
+<dt>&lt;Article@<a name="a846015923">a846015923</a>&gt;</dt>
+<dd><ul compact>
+<li>rdfs:label = 'A Framework for Modeling and Evaluating Automatic Semantic Reconciliation'</li>
+<li>author = <dt>&lt;PERSON_LIST@<a name=""></a>&gt;</dt>
+<dd><ul compact>
+<li>rdf:first = &lt;_@<a href="#a900366022">#a900366022</a>&gt;</li>
+<li>rdf:rest = <dt>&lt;PERSON_LIST@<a name=""></a>&gt;</dt>
+<dd><ul compact>
+<li>rdf:first = &lt;_@<a href="#a467748807">#a467748807</a>&gt;</li>
+<li>rdf:rest = <dt>&lt;PERSON_LIST@<a name=""></a>&gt;</dt>
+<dd><ul compact>
+<li>rdf:first = &lt;_@<a href="#a971541439">#a971541439</a>&gt;</li>
+<li>rdf:rest = <dt>&lt;PERSON_LIST@<a name=""></a>&gt;</dt>
+<dd><ul compact>
+<li>rdf:first = &lt;_@<a href="#a066600210">#a066600210</a>&gt;</li>
+<li>rdf:rest = &lt;_@<a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil">http://www.w3.org/1999/02/22-rdf-syntax-ns#nil</a>&gt;</li>
+</ul></dd>
+</li>
+</ul></dd>
+</li>
+</ul></dd>
+</li>
+</ul></dd>
+</li>
+<li>journal = &lt;_@<a href="#a906774044">#a906774044</a>&gt;</li>
+<li>title = 'A Framework for Modeling and Evaluating Automatic Semantic Reconciliation'</li>
+<li>note = 'to appear'</li>
+<li>date = <dt>&lt;DATE@<a name=""></a>&gt;</dt>
+<dd><ul compact><li>year = '2004'</li></ul></dd>
+</li>
+</ul></dd>
+</dl>
+<hr>
+<address>Generated by OWL2HTML</address>
+</body>
+</html>
